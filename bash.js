@@ -2,10 +2,12 @@ const pwd = require('./pwd');
 const ls = require('./ls');
 const cat = require('./cat');
 const curl = require('./curl');
+const date = require('./date');
 
 
 
 const done = (output) => {
+    output = output.toString();
     process.stdout.write(output)
     process.stdout.write("\nprompt > ")
 };
@@ -30,6 +32,9 @@ process.stdin.on('data', (data)=> {
     }
     else if (args[0] === 'echo') {
         done(args[0]);
+    }
+    else if (args[0] === 'date'){
+        date(done);
     }
     else{
         done('You typed: ' + args[0]);
