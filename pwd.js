@@ -1,5 +1,5 @@
-function pwd (){
-  process.stdout.write(process.cwd());
+function pwd (done){
+    done(process.cwd());
 }
 
 module.exports = pwd;
